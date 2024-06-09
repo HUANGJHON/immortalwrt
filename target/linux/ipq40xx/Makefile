@@ -17,8 +17,8 @@ include $(INCLUDE_DIR)/target.mk
 DEFAULT_PACKAGES += \
 	kmod-usb-dwc3-qcom \
 	kmod-leds-gpio kmod-gpio-button-hotplug swconfig \
-	kmod-ath10k-ct wpad-openssl \
-	kmod-usb3 kmod-usb-dwc3 ath10k-firmware-qca4019-ct \
+	wpad-openssl \
+	kmod-usb3 kmod-usb-dwc3 \
 	uboot-envtools automount autocore-arm luci-app-cpufreq
 
 $(eval $(call BuildTarget))
