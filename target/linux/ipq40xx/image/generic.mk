@@ -945,7 +945,6 @@ TARGET_DEVICES += p2w_r619ac-64m
 define Device/p2w_r619ac-128m
 	$(call Device/p2w_r619ac)
 	DEVICE_VARIANT := 128M NAND
-        DEVICE_PACKAGES := kmod-natflow
 endef
 TARGET_DEVICES += p2w_r619ac-128m
 
