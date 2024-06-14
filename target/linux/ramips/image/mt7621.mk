@@ -2790,7 +2790,7 @@ define Device/youhua_wr1200js
   DEVICE_VENDOR := YouHua
   DEVICE_MODEL := WR1200JS
   DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
-	kmod-usb-ledtrig-usbport kmod-natflow -uboot-envtools
+	kmod-usb-ledtrig-usbport -uboot-envtools
 endef
 TARGET_DEVICES += youhua_wr1200js
 
