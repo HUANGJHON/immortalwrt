@@ -137,31 +137,31 @@
 &gmac1 {
 	status = "okay";
 	label = "wan";
-	phy-handle = <&ethphy4>;
+	phy-handle = <&ethphy0>;
 
 	nvmem-cells = <&macaddr_factory_3fffa>;
 	nvmem-cell-names = "mac-address";
 };
 
 &mdio {
-	ethphy4: ethernet-phy@4 {
-		reg = <4>;
+	ethphy0: ethernet-phy@0 {
+		reg = <0>;
 	};
 };
 
 &switch0 {
 	ports {
-		port@0 {
+		port@1 {
 			status = "okay";
 			label = "lan1";
 		};
 
-		port@1 {
+		port@2 {
 			status = "okay";
 			label = "lan2";
 		};
 
-		port@2 {
+		port@3 {
 			status = "okay";
 			label = "lan3";
 		};
