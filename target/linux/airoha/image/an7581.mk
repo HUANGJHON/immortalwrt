@@ -23,7 +23,7 @@ define Device/airoha_an7581-evb
   DEVICE_VENDOR := Airoha
   DEVICE_MODEL := AN7581 Evaluation Board (SNAND)
   DEVICE_PACKAGES := kmod-leds-pwm kmod-i2c-an7581 kmod-pwm-airoha kmod-input-gpio-keys-polled
-  DEVICE_DTS := an7581-evb
+  DEVICE_DTS := an7581-xg-040g-md
   DEVICE_DTS_CONFIG := config@1
   IMAGE/sysupgrade.bin := append-kernel | pad-to 128k | append-rootfs | pad-rootfs | append-metadata
   ARTIFACT/preloader.bin := an7581-preloader rfb
