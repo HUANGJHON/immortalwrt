@@ -7,12 +7,10 @@
 
 / {
 	aliases {
-		led-boot = &led_status_red;
-		led-failsafe = &led_status_red;
-		led-running = &led_status_green;
-		led-upgrade = &led_status_green;
+		led-boot = &led_sys_red;
+		led-failsafe = &led_sys_red;
+		led-running = &led_sys_green;r		led-upgrade = &led_sys_red;
 		label-mac-device = &gmac0;
-	};
 
 	chosen {
 		bootargs = "console=ttyS0,115200n8";
@@ -21,16 +19,24 @@
 	leds {
 		compatible = "gpio-leds";
 
-		led_status_red: status_red {
-			function = LED_FUNCTION_STATUS;
-			color = <LED_COLOR_ID_RED>;
-			gpios = <&gpio 13 GPIO_ACTIVE_HIGH>;
+		led_sys_red: sys_red {
+			label = "red:sys";
+			gpios = <&gpio 13 GPIO_ACTIVE_LOW>;
 		};
 
-		led_status_green: status_green {
-			function = LED_FUNCTION_STATUS;
-			color = <LED_COLOR_ID_GREEN>;
+		led_sys_green: sys_green {
+			label = "green:sys";
 			gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
+		};
+
+		net_red {
+			label = "red:net";
+			gpios = <&gpio 14 GPIO_ACTIVE_LOW>;
+		};
+
+		net_green {
+			label = "green:net";
+			gpios = <&gpio 16 GPIO_ACTIVE_LOW>;
 		};
 	};
 
