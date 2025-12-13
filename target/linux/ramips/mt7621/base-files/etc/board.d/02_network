@@ -289,7 +289,6 @@ ramips_setup_macs()
 		lan_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		;;
-    jcg,q20|\
 	jdcloud,re-sp-01b)
 		lan_mac=$(mtd_get_mac_ascii config mac)
 		wan_mac=$lan_mac
@@ -337,6 +336,7 @@ ramips_setup_macs()
 		lan_mac=$(mtd_get_mac_ascii Config mac)
 		label_mac=$lan_mac
 		;;
+    jcg,q20|\
 	netgear,wax202)
 		lan_mac=$(mtd_get_mac_ascii Config mac)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
