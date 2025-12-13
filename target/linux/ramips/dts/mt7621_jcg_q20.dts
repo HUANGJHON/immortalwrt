@@ -166,18 +166,10 @@
 	};
 };
 
-&gmac0 {
-	nvmem-cells = <&macaddr_factory_3fff4>;
-	nvmem-cell-names = "mac-address";
-};
-
 &gmac1 {
 	status = "okay";
 	label = "wan";
 	phy-handle = <&ethphy3>;
-
-	nvmem-cells = <&macaddr_factory_3fffa>;
-	nvmem-cell-names = "mac-address";
 };
 
 &ethphy3 {
