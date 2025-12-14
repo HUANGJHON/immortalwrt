@@ -305,7 +305,6 @@ ramips_setup_macs()
 		wan_mac=$lan_mac
 		label_mac=$lan_mac
 		;;
-    jcg,q20|\
 	belkin,rt1800|\
 	linksys,e7350)
 		lan_mac=$(mtd_get_mac_ascii Config lan_hwaddr)
@@ -337,6 +336,7 @@ ramips_setup_macs()
 		lan_mac=$(mtd_get_mac_ascii Config mac)
 		label_mac=$lan_mac
 		;;
+    jcg,q20|\
 	netgear,wax202)
 		lan_mac=$(mtd_get_mac_ascii Config mac)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
