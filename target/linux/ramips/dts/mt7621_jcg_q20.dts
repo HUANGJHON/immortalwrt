@@ -11,10 +11,10 @@
 	model = "360 T6GS";
 
 	aliases {
-		led-boot = &led_status_green;
-		led-failsafe = &led_status_green;
-		led-running = &led_status_green;
-		led-upgrade = &led_status_green;
+		led-boot = &led_status_red;
+		led-failsafe = &led_status_red;
+		led-running = &led_status_blue;
+		led-upgrade = &led_status_blue;
 		label-mac-device = &gmac0;
 	};
 
@@ -25,9 +25,15 @@
 	leds {
 		compatible = "gpio-leds";
 
-		led_status_green: status_green {
+		led_status_red: status_red {
 			function = LED_FUNCTION_STATUS;
-			color = <LED_COLOR_ID_GREEN>;
+			color = <LED_COLOR_ID_RED>;
+			gpios = <&gpio 14 GPIO_ACTIVE_HIGH>;
+		};
+
+		led_status_blue: status_blue {
+			function = LED_FUNCTION_STATUS;
+			color = <LED_COLOR_ID_BLUE>;
 			gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
 		};
 	};
@@ -161,29 +167,45 @@
 };
 
 &gmac0 {
-	mtd-mac-address = <&factory 0x3fff4>;
+	nvmem-cells = <&macaddr_factory_3fff4>;
+	nvmem-cell-names = "mac-address";
 };
 
 &gmac1 {
-	mtd-mac-address = <&factory 0x3fffa>;
 	status = "okay";
+	label = "wan";
+	phy-handle = <&ethphy3>;
+
+	nvmem-cells = <&macaddr_factory_3fffa>;
+	nvmem-cell-names = "mac-address";
 };
 
-&gsw {
-	mediatek,portmap = "lllwl";
-	status = "okay";
-};
-
-&hnat {
-	mtketh-wan = "eth1";
-	mtketh-ppd = "eth0";
-	mtketh-lan = "eth0";
-	mtketh-max-gmac = <2>;
-	/delete-property/ mtkdsa-wan-port;
+&ethphy3 {
+	/delete-property/ interrupts;
 };
 
 &switch0 {
-	status = "disabled";
+	ports {
+		port@0 {
+			status = "okay";
+			label = "lan1";
+		};
+
+        port@1 {
+			status = "okay";
+			label = "lan2";
+		};
+
+        port@2 {
+			status = "okay";
+			label = "lan3";
+		};
+
+		port@4 {
+			status = "okay";
+			label = "lan4";
+		};
+	};
 };
 
 &state_default {
