@@ -167,21 +167,8 @@
 };
 
 &gmac0 {
-	nvmem-cells = <&macaddr_factory_3fff4>;
+	nvmem-cells = <&macaddr_factory_3fff4 0>;
 	nvmem-cell-names = "mac-address";
-};
-
-&gmac1 {
-	status = "okay";
-	label = "wan";
-	phy-handle = <&ethphy3>;
-
-	nvmem-cells = <&macaddr_factory_3fffa>;
-	nvmem-cell-names = "mac-address";
-};
-
-&ethphy3 {
-	/delete-property/ interrupts;
 };
 
 &switch0 {
@@ -201,9 +188,11 @@
 			label = "lan3";
 		};
 
-		port@4 {
+		port@3 {
 			status = "okay";
-			label = "lan4";
+			label = "wan";
+            nvmem-cells = <&macaddr_factory_3fffa 1>;
+	        nvmem-cell-names = "mac-address";
 		};
 	};
 };
