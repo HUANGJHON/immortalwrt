@@ -141,10 +141,6 @@ ramips_setup_interfaces()
 	gnubee,gb-pc2)
 		ucidef_set_interface_lan "ethblack ethblue ethyellow"
 		;;
-    jcg,q20)
-		ucidef_add_switch "switch0" \
-			"0:lan" "1:lan" "2:lan" "3:wan" "6u@eth0" "5u@eth1"
-        ;;
 	mikrotik,routerboard-760igs)
 		ucidef_set_interfaces_lan_wan "lan2 lan3 lan4 lan5" "wan sfp"
 		;;
@@ -249,6 +245,7 @@ ramips_setup_macs()
 		lan_mac=$wan_mac
 		label_mac=$wan_mac
 		;;
+    jcg,q20|\
 	comfast,cf-e390ax)
 		lan_mac=$(cat /sys/class/net/eth0/address)
 		label_mac=$lan_mac
@@ -295,7 +292,6 @@ ramips_setup_macs()
 		lan_mac=$(mtd_get_mac_ascii u-boot-env ethaddr)
 		wan_mac=$(macaddr_add "$lan_mac" 1)
 		;;
-    jcg,q20|\
 	jdcloud,re-sp-01b)
 		lan_mac=$(mtd_get_mac_ascii config mac)
 		wan_mac=$lan_mac
