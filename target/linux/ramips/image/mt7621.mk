@@ -1873,7 +1873,6 @@ define Device/jcg_q20
 	check-size
   DEVICE_VENDOR := JCG
   DEVICE_MODEL := Q20
-  DEVICE_PACKAGES := kmod-mt7915-firmware
 endef
 TARGET_DEVICES += jcg_q20
 
