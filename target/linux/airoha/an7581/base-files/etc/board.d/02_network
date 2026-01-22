@@ -11,6 +11,9 @@ an7581_setup_interfaces()
 	local board="$1"
 
 	case "$board" in
+    bell,xg-040g-md)
+		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" "eth1"
+		;;
 	airoha,an7581-evb)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" "eth1"
 		;;
